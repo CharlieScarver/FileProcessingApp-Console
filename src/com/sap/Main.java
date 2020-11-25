@@ -26,6 +26,10 @@ public class Main {
             System.out.println("The file was read successfully");
 
             int action;
+            int firstRowIndex;
+            int firstWordIndex;
+            int secondRowIndex;
+            int secondWordIndex;
             do {
                 System.out.println("\nAvailable actions:");
                 System.out.println("1. Swap two lines");
@@ -50,35 +54,33 @@ public class Main {
                         try {
                             // Use 1-based indexes for user friendliness
                             System.out.println("First line index:");
-                            int firstRowIndex = Integer.parseInt(scanner.nextLine()) - 1;
+                            firstRowIndex = Integer.parseInt(scanner.nextLine()) - 1;
 
                             System.out.println("Second line index:");
-                            int secondRowIndex = Integer.parseInt(scanner.nextLine()) - 1;
-
-                            swapLines(firstRowIndex, secondRowIndex, path, lines);
+                            secondRowIndex = Integer.parseInt(scanner.nextLine()) - 1;
                         } catch (NumberFormatException e) {
                             System.out.println(ERR_INVALID_INTEGER);
                             break;
                         }
+                        swapLines(firstRowIndex, secondRowIndex, path, lines);
                         break;
                     case 2:
                         try {
                             // Use 1-based indexes for user friendliness
                             System.out.println("First line index:");
-                            int firstRowIndex = Integer.parseInt(scanner.nextLine()) - 1;
+                            firstRowIndex = Integer.parseInt(scanner.nextLine()) - 1;
                             System.out.println("First word index:");
-                            int firstWordIndex = Integer.parseInt(scanner.nextLine()) - 1;
+                            firstWordIndex = Integer.parseInt(scanner.nextLine()) - 1;
 
                             System.out.println("Second line index:");
-                            int secondRowIndex = Integer.parseInt(scanner.nextLine()) - 1;
+                            secondRowIndex = Integer.parseInt(scanner.nextLine()) - 1;
                             System.out.println("Second word index:");
-                            int secondWordIndex = Integer.parseInt(scanner.nextLine()) - 1;
-
-                            swapWords(firstRowIndex, firstWordIndex, secondRowIndex, secondWordIndex, path, lines);
+                            secondWordIndex = Integer.parseInt(scanner.nextLine()) - 1;
                         } catch (NumberFormatException e) {
                             System.out.println(ERR_INVALID_INTEGER);
                             break;
                         }
+                        swapWords(firstRowIndex, firstWordIndex, secondRowIndex, secondWordIndex, path, lines);
                         break;
                     case 3:
                         System.out.println("Enter the path to the file (example: ./file.txt):");
